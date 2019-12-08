@@ -242,7 +242,12 @@ ActionListener{  Cs cs;
 }
 
 七、程序截图
+
 ![](https://github.com/mirenkeaiwsz/gui6/blob/master/68555b67303139cff7d171d7ffee07c.jpg)
 ![](https://github.com/mirenkeaiwsz/gui6/blob/master/81acb4d4745c3849bdca74c8911df03.jpg)
 ![](https://github.com/mirenkeaiwsz/gui6/blob/master/c30edb400c6b985dc9974f51e8beb30.png)
 ![](https://github.com/mirenkeaiwsz/gui6/blob/master/f7b9eb7c017fe671ca4a2c5a20277fa.png)
+
+八、实验感受
+
+这次综合性的实验让我更明确了java编程的逻辑感，懂得查找使用了更多的函数。例如JTextField，ActionListener，actionPerformed函数等。要将之前实验总学到的和大部分理论知识加以结合。能独立的完成gui窗口的设计。了解了组件之间的关系和文件之间的读取写入调用等。
