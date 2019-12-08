@@ -242,7 +242,7 @@ ActionListener{  Cs cs;
 }
 
 七、程序截图
-![]()
+![](https://github.com/mirenkeaiwsz/gui6/blob/master/68555b67303139cff7d171d7ffee07c.jpg)
 ![]()
 ![]()
 ![]()
