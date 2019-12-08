@@ -243,7 +243,7 @@ ActionListener{  Cs cs;
 
 七、程序截图
 ![](https://github.com/mirenkeaiwsz/gui6/blob/master/68555b67303139cff7d171d7ffee07c.jpg)
-![]()
+![](https://github.com/mirenkeaiwsz/gui6/blob/master/81acb4d4745c3849bdca74c8911df03.jpg)
 ![]()
 ![]()
 ![]()
