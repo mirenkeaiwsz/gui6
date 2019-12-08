@@ -25,7 +25,7 @@
 
 四、流程图
 
-![lct](https://github.com/mirenkeaiwsz/gui6/blob/master/1575804189(1).png)
+![lct](https://github.com/mirenkeaiwsz/gui6/blob/master/1575807375(1).png)
 
 五、部分函数的使用方法及注释
 
