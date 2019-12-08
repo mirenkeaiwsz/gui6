@@ -65,3 +65,185 @@ public void actionPerformed(ActionEvent e)
 实现过程大体如下：编写一个ActionListener类的侦听器，组件注册该侦听器，侦听器内部要编写这个actionPerformed方法。
 
 六、部分代码
+
+package xueshengxuanke;
+import xueshengxuanke.*;
+import javax.swing.*;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+public class GUI1 extends JFrame implements
+ActionListener{  Cs cs;
+                   Container c;
+                   JLabel label1;JLabel label2;JLabel label3;JLabel label4,label5;JLabel label6;
+               	JLabel label7;JLabel label8;JLabel label9;JLabel label10,label11;JLabel label12;JLabel label13;
+               	JButton button1,button2;
+               	
+               	TextArea ta1;
+               	JTextField t1,t2,t3,t4,t5,t6,t7,t8;
+               	CheckboxGroup cbg;
+               	               	JCheckBox c1,c2,c3;
+               	
+               	String bianhao[]={"004","005","006","007","008","009"};
+               	String score[]={"0.5","1.0","1.5","2.0","2.5","3.0",
+               			"3.5","4.0"};
+               	public GUI1(){
+               		super("选课系统");
+               		label1=new JLabel("请输入个人信息和所选课程，完成后单击确定。            ");
+               		label7=new JLabel("请输入开设的课程和信息，完成后单击确定。        ");
+               		label2=new JLabel("学生姓名：");
+               		
+               		label3=new JLabel("性别:");
+               		cbg = new CheckboxGroup(); 
+               		
+               		label6=new JLabel("学号：");
+               		label4=new JLabel("生日：");
+               		label5=new JLabel("课程：");
+               		label11=new JLabel("上课地点：");
+
+               	
+               		c1=new JCheckBox("语文");
+               		c2=new JCheckBox("数学");
+               		c3=new JCheckBox("英语");
+               		ta1=new TextArea(10,30);
+               		
+               		button1=new JButton("确定");
+               		button2=new JButton("取消");
+                                button3=new JButton("删除");
+               		
+               		t1=new JTextField("",5);
+               		t2=new JTextField("",10);
+               		t3=new JTextField("",5);
+               		t4=new JTextField("",5);
+               		t5=new JTextField("",5);
+               		t6=new JTextField("",5);
+               		t7=new JTextField("",5);
+               		t8=new JTextField("",5);
+               		setBounds(600,300,625,600);
+               		try {UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+               		}catch(Exception e){}
+               		c=getContentPane();	
+
+               		c.setLayout(new FlowLayout(FlowLayout.LEFT));
+               		c.add(label1);
+               		
+               		c.add(label2);
+               		c.add(t1);
+
+               		c.add(label3);
+               		
+               		c.add(new Checkbox("男", cbg, true)); 
+               		c.add(new Checkbox("女", cbg, false));
+               		
+               		c.add(label6);
+               		c.add(t2);
+
+               		c.add(label5);
+               		c.add(c1);c.add(c2);c.add(c3);
+               		  		
+               		c.add(ta1);
+		
+               		c.add(button1);
+               		c.add(button2);
+               		c.add(button3);               		
+               		
+               		setVisible(true);
+               		button1.addActionListener(this);
+               		button2.addActionListener(this);
+               		
+               		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+               		}
+               	public void actionPerformed(ActionEvent e){
+               		Cs p = null;
+            		Cs q = null;
+            		Cs r = null;
+            		
+            	    Student students = null;
+            	    Cs cs;
+            	    String str="";
+            	    
+            	    try {
+            	    	File name1 = new File("D:\\课程.txt");
+            	    	 FileInputStream in=new FileInputStream(name1);
+            	    	 byte[] buffer=new byte[2048];
+            	    	 in.read(buffer);
+            	    	 in.close();
+            	    	 
+            	    	 str=new String(buffer);
+            	    	
+            	    } catch (IOException e1) {
+            	    	// TODO Auto-generated catch block
+            	    	e1.printStackTrace();
+            	    } 
+            	    String b[] = str.split(",");
+                	p  = new Cs(b[0],b[1],b[2],b[3]);
+                	q  = new Cs(b[4],b[5],b[6],b[7]);
+                	r  = new Cs(b[8],b[9],b[10],b[11]);
+                
+               			if(e.getSource()==button1) {
+               				
+               				
+               				ta1.append("姓名："+t1.getText()+"\n"+
+               				"学号："+t2.getText()+"\n"+"性别："
+               				+cbg.getSelectedCheckbox().getLabel()+
+               				"\n");
+               			byte[] se= new byte[4096];
+               			StringBuffer st= new StringBuffer();
+               				if(c1.isSelected() && e.getSource()==button1)
+               					{ta1.append( "课程：" + c1.getLabel()+" "+p.toString()+"\n");
+               					students = new Student(t1.getText(),t2.getText(),cbg.getSelectedCheckbox().getLabel(),p);
+               					StringBuffer s1=new StringBuffer();
+               					s1.append(students);
+               					s1.append(p);
+               					st.append(s1);}
+               				if(c2.isSelected() && e.getSource()==button1) {
+               					ta1.append( "课程：" + c2.getLabel()+" "+q.toString()+"\n");
+               					students = new Student(t1.getText(),t2.getText(),cbg.getSelectedCheckbox().getLabel(),q);
+               					StringBuffer s2=new StringBuffer();
+               					
+               					s2.append(q);
+               					st.append(s2);}
+               				if(c3.isSelected() && e.getSource()==button1) {
+               					ta1.append( "课程：" + c3.getLabel()+" "+r.toString()+"\n");
+               					students = new Student(t1.getText(),t2.getText(),cbg.getSelectedCheckbox().getLabel(),r);
+               					StringBuffer s3=new StringBuffer();
+               					
+               					s3.append(r);
+               					st.append(s3);
+               					ta1.append("\n");}
+               					try {
+            						FileWriter fw=new FileWriter("D:\\选课信息.txt");
+            						fw.write(st.toString());
+            						fw.close();
+            						} 
+            					catch (IOException n) 
+            						{
+            						n.printStackTrace();
+            						}}
+               			
+               			if(e.getSource()==button2){
+               				System.exit(0);
+               			}
+               			
+               				cs = new Cs(t4.getText(),t5.getText(),
+               						t6.getText(),t7.getText());
+
+               		}
+               	
+               	public static void main(String[] args){
+               		GUI1 d = new GUI1();
+               	}
+
+}
+
+七、程序截图
+![]()
+![]()
+![]()
+![]()
+![]()
